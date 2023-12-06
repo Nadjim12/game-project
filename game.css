@@ -1,0 +1,9 @@
+#game-screen {
+    position: relative;
+    width: 800px; /* adjust the width to fit your game */
+    height: 600px; /* adjust the height to fit your game */
+    background-color: #000; /* set the background color for the game screen */
+    margin: 0 auto; /* center the game screen horizontally */
+  }
+  
+  /* Add any additional CSS rules for game elements */
