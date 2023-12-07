@@ -5,5 +5,11 @@
     background-color: #000; /* set the background color for the game screen */
     margin: 0 auto; /* center the game screen horizontally */
   }
-  
+  /* CSS styles for the game window */
+.game-window {
+    width: 600px; /* Adjust the width of your game window as needed */
+    height: 400px; /* Adjust the height of your game window as needed */
+    margin: 0 auto; /* Center the game window horizontally */
+    border: 2px solid black; /* Add borders or styling as desired */
+  }
   /* Add any additional CSS rules for game elements */
