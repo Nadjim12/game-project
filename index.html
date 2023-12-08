@@ -11,31 +11,29 @@
 <body>
   <div id="gameWindow">
     <div id="splashScreen">
-        <h1>Welcome to Your Game</h1>
-        <button id="startButton">Start Game</button>
-      </div>
-    
-      <!-- Game Screen -->
-      <canvas id="gameCanvas" width="800" height="600"></canvas>
-    
-      <!-- Game Over Screen -->
-      <div id="gameOverScreen" style="display: none;">
-        <h1>Game Over!</h1>
-        <p>Your Score: <span id="score"></span></p>
-        <button id="restartButton">Restart</button>
+      <h1>Welcome to Your Game</h1>
+      <button id="startButton">Start Game</button>
+    </div>
 
-        <div id="character"></div>
+    <!-- Character -->
+    <div id="character"></div>
 
-  <!-- Obstacles -->
-  <div class="obstacle"></div>
-  <div class="obstacle"></div>
-      </div>
-    <h1>Your Game Title</h1>
-    <canvas id="gameCanvas"></canvas>
-   
+    <!-- Obstacles -->
+    <div class="obstacle"></div>
+    <div class="obstacle"></div>
+
+    <!-- Game Screen -->
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" style="display: none;">
+      <h1>Game Over!</h1>
+      <p>Your Score: <span id="score"></span></p>
+      <button id="restartButton">Restart</button>
+    </div>
   </div>
 
-  <script src="script.js"></script> <!-- Adjust the path to the JavaScript file if needed -->
+  <script src="script.js"></script>
 </body>
 
 </html>
