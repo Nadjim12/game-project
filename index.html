@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Game Title</title>
-  <link rel="stylesheet" href="styles.css"> 
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <div id="gameWindow">
-    <h1>2D Runner</h1>
     <div id="splashScreen">
       <h1>Welcome to Your Game</h1>
       <button id="startButton">Start Game</button>
@@ -16,7 +15,7 @@
     
     <!-- Game Screen -->
     <canvas id="gameCanvas" width="800" height="600"></canvas>
-    
+
     <!-- Game Over Screen -->
     <div id="gameOverScreen" style="display: none;">
       <h1>Game Over!</h1>
@@ -32,8 +31,8 @@
     <div class="obstacle"></div>
   </div>
 
-  
+  <h1>2D Runner</h1> <!-- This should be placed inside the gameWindow div -->
 
-  <script src="script.js"></script> 
+  <script src="./script.js"></script>
 </body>
 </html>
