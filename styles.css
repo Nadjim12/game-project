@@ -1,7 +1,7 @@
 /* Add your CSS styles for game elements here */
 #gameWindow {
-    background-image: url("./game-assets/background.jpg");
-    background-size: cover; /* Adjust this property based on how you want the background to be displayed */
+    background-image: url("./game-assets/background.jpg.png");
+    background-size: cover;
   }
 #character {
     width: 50px;
