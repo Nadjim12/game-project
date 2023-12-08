@@ -1,5 +1,95 @@
 // Game screen element
 var gameScreen = document.getElementById("game-screen");
+function generateBlock() {
+    const block = document.createElement("div");
+    block.className = "block";
+    gameScreen.appendChild(block);
+}
+function isColliding(block, character) {
+    // Get the coordinates and dimensions of the block
+    const blockRect = block.getBoundingClientRect();
+    const blockTop = blockRect.top;
+    const blockBottom = blockRect.bottom;
+    const blockLeft = blockRect.left;
+    const blockRight = blockRect.right;
+    
+    // Get the coordinates and dimensions of the character
+    const characterRect = character.getBoundingClientRect();
+    const characterTop = characterRect.top;
+    const characterBottom = characterRect.bottom;
+    const characterLeft = characterRect.left;
+    const characterRight = characterRect.right;
+    
+    // Check for collision by comparing the positions and dimensions of the block and character
+    if (
+      characterBottom >= blockTop &&
+      characterTop <= blockBottom &&
+      characterRight >= blockLeft &&
+      characterLeft <= blockRight
+    ) {
+      return true; // Collision detected
+    }
+    
+    return false; // No collision detected
+  }
+const gameWindow = document.querySelector(".gamewindow");
+
+function startBlockGenerator() {
+    setInterval(generateBlock, 2000); // Add a new block every 2 seconds (adjust the interval as needed)
+  }
+  startBlockGenerator();
+    function updateBlocks() {
+    const blocks = document.querySelectorAll('.block');
+    blocks.forEach(block => {
+      // Update the position of each block (e.g., decrease the left position to move it from right to left)
+      block.style.left = parseInt(block.style.left) - 1 + 'px';
+      cancelAnimationFrame(animationFrameId);
+      character.hit();
+    showGameOverScreen();
+    blocks.forEach((block) => {
+        const blockRect = block.getBoundingClientRect();
+        if (blockRect.right <= 0 || isColliding(block, character)) {
+          block.remove();
+        }
+      });
+      // Request the next frame to continue the animation loop
+const animationFrameId = requestAnimationFrame(updateBlocks);
+      // Check for collision with the character
+      if (isColliding(block, character)) {
+       // Stop the game
+  cancelAnimationFrame(animationFrameId);
+
+  // Initiate character hit animation
+  character.hit();
+
+  // Show the game over screen
+  showGameOverScreen();
+    });
+  
+    // Remove blocks that have moved off the screen or collided with the character
+    blocks.forEach((block) => {
+        const blockRect = block.getBoundingClientRect();
+        
+        // Check if the block has moved off the left side of the screen
+        if (blockRect.right <= 0) {
+          // Remove the block from the DOM
+          block.remove();
+        } 
+        // Check if the block is colliding with the character
+        else if (isColliding(block, character)) {
+          // Perform actions when collision occurs (e.g., stop the game, initiate character hit animation, show game over screen)
+          cancelAnimationFrame(animationFrameId);
+          character.hit();
+          showGameOverScreen();
+          block.remove();
+        }
+      });
+
+
+    // Request the next frame to continue the animation loop
+    requestAnimationFrame(updateBlocks);
+  }
+
 
 // Character element
 var character = document.createElement("div");
@@ -50,12 +140,26 @@ function duckCharacter() {
   }
   function handleCollision() {
     // End the game or trigger game over logic
+ // Call the function to increase the score
+ increaseScore();
+
     displayGameOver();
   
     // Stop the game loop
     cancelAnimationFrame(moveCharacter);
   
     // Adjust the character's position or reset the game state if desired
+  }
+  function increaseScore() {
+    let score = 0; // initialize the score
+  
+    function updateScoreDisplay() {
+      const scoreElement = document.getElementById('score');
+      scoreElement.textContent = score; // update the score display in the HTML
+    }
+  
+    score += 1; // increment the score by 1
+    updateScoreDisplay(); // update the score display
   }
 
 
@@ -71,6 +175,20 @@ function duckCharacter() {
 var obstacleSpeed = 5; // Adjust the initial obstacle speed as needed
 var characterSpeed = 10; // Adjust the initial character speed as needed
 
+function moveObstacles() {
+    const obstacles = document.querySelectorAll(".obstacle");
+  
+    obstacles.forEach((obstacle) => {
+      const currentOffset = parseFloat(obstacle.style.left);
+  
+      // Update the obstacle's position based on its speed
+      const obstacleSpeed = 2; // Adjust the speed as needed
+      const newOffset = currentOffset - obstacleSpeed;
+  
+      // Update the left position of the obstacle
+      obstacle.style.left = `${newOffset}px`;
+    });
+  }
 // Inside your game loop function
 function gameLoop() {
   // Move obstacles based on the obstacle speed
@@ -91,7 +209,23 @@ for (var i = 0; i < obstacles.length; i++) {
       break; // Exit the loop since we already detected a collision
     }
   }
-  // Other game logic and rendering code...
+  blocks.forEach((block) => {
+    const blockRect = block.getBoundingClientRect();
+    
+    // Check if the block has moved off the left side of the screen
+    if (blockRect.right <= 0) {
+      // Remove the block from the DOM
+      block.remove();
+    } 
+    // Check if the block is colliding with the character
+    else if (isColliding(block, character)) {
+      // Perform actions when collision occurs (e.g., stop the game, initiate character hit animation, show game over screen)
+      cancelAnimationFrame(animationFrameId);
+      character.hit();
+      showGameOverScreen();
+      block.remove();
+    }
+  });
 // Adjust speed variables here if needed
 obstacleSpeed += 0.1; // Increase obstacle speed gradually
 characterSpeed += 0.05; // Increase character speed gradually

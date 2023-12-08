@@ -13,3 +13,18 @@
     border: 2px solid black; /* Add borders or styling as desired */
   }
   /* Add any additional CSS rules for game elements */
+  .game-button {
+    /* Styles for game buttons */
+    background-color: #f00; /* Set button background color */
+    color: #fff; /* Set button text color */
+    padding: 10px 20px; /* Add padding to the button */
+    border-radius: 5px; /* Apply rounded corners to the button */
+    text-decoration: none; /* Remove underline from button text */
+  }
+  
+  .game-score {
+    /* Styles for game score display */
+    font-size: 24px; /* Set font size for the score */
+    color: #ff0; /* Set color for the score */
+    text-align: center; /* Center the score text */
+  }
