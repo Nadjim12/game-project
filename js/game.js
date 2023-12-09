@@ -35,6 +35,7 @@ function isColliding(block, character) {
   return false; // No collision detected
 }
 
+var gameScreen = document.getElementById("gameScreen");
 var character = document.createElement("div");
 character.className = "character";
 gameScreen.appendChild(character);
