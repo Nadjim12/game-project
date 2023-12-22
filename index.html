@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Game Title</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="gameWindow">
+    <h1>2D Runner</h1> <!-- Move the heading inside the gameWindow div -->
+  
+    <div id="splashScreen">
+      <h1>Welcome to Your Game</h1>
+      <button id="startButton">Start Game</button>
+    </div>
+    
+    <!-- Game Screen -->
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" style="display: none;">
+      <h1>Game Over!</h1>
+      <p>Your Score: <span id="score"></span></p>
+      <button id="restartButton">Restart</button>
+    </div>
+
+    <!-- Character -->
+    <div id="character"></div>
+
+    <!-- Obstacles -->
+    <div class="obstacle"></div>
+    <div class="obstacle"></div>
+  </div>
+
+  <script src="./script.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

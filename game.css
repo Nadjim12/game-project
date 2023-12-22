@@ -1,0 +1,30 @@
+#game-screen {
+    position: relative;
+    width: 800px; /* adjust the width to fit your game */
+    height: 600px; /* adjust the height to fit your game */
+    background-color: #000; /* set the background color for the game screen */
+    margin: 0 auto; /* center the game screen horizontally */
+  }
+  /* CSS styles for the game window */
+.game-window {
+    width: 600px; /* Adjust the width of your game window as needed */
+    height: 400px; /* Adjust the height of your game window as needed */
+    margin: 0 auto; /* Center the game window horizontally */
+    border: 2px solid black; /* Add borders or styling as desired */
+  }
+  /* Add any additional CSS rules for game elements */
+  .game-button {
+    /* Styles for game buttons */
+    background-color: #f00; /* Set button background color */
+    color: #fff; /* Set button text color */
+    padding: 10px 20px; /* Add padding to the button */
+    border-radius: 5px; /* Apply rounded corners to the button */
+    text-decoration: none; /* Remove underline from button text */
+  }
+  
+  .game-score {
+    /* Styles for game score display */
+    font-size: 24px; /* Set font size for the score */
+    color: #ff0; /* Set color for the score */
+    text-align: center; /* Center the score text */
+  }
