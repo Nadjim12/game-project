@@ -36,7 +36,9 @@ function isColliding(block, character) {
 }
 
 var gameScreen = document.getElementById("gameScreen");
+console.log(gameScreen);
 var character = document.createElement("div");
+console.log(character); 
 character.className = "character";
 gameScreen.appendChild(character);
 
